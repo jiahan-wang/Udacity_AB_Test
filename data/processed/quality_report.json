@@ -1,0 +1,143 @@
+{
+  "generated_by": "data cleaning, computed from raw",
+  "source_sha256": {
+    "control": "64e3d23e25449188d7e65391c9642d991865550ee77d13887248af0f9224a86b",
+    "experiment": "7d49095e7146bead42babf9358da435a9869389c4269230d76492cb33d755056"
+  },
+  "rows_per_group": {
+    "Control": 37,
+    "Experiment": 37
+  },
+  "duplicated_date_group": 0,
+  "date_range": {
+    "Control": [
+      "2014-10-11",
+      "2014-11-16",
+      37
+    ],
+    "Experiment": [
+      "2014-10-11",
+      "2014-11-16",
+      37
+    ]
+  },
+  "date_continuous": true,
+  "missing_long": {
+    "Date": 0,
+    "Weekday": 0,
+    "Group": 0,
+    "Pageviews": 0,
+    "Clicks": 0,
+    "Enrollments": 28,
+    "Payments": 28,
+    "OutcomeComplete": 0,
+    "CTP": 0,
+    "GrossConversion": 28,
+    "NetConversion": 28,
+    "PayPerEnrollment": 28
+  },
+  "negatives": {
+    "Pageviews": 0,
+    "Clicks": 0,
+    "Enrollments": 0,
+    "Payments": 0
+  },
+  "funnel_violations_on_outcome_days": {
+    "Pageviews_lt_Clicks": 0,
+    "Clicks_lt_Enrollments": 0,
+    "Enrollments_lt_Payments": 0
+  },
+  "extreme_days_z_abs_ge_2_5": [
+    {
+      "Group": "Control",
+      "Date": "2014-10-18",
+      "Metric": "Pageviews",
+      "value": 7434.0,
+      "z": -2.5734911971524035
+    },
+    {
+      "Group": "Control",
+      "Date": "2014-10-24",
+      "Metric": "CTP",
+      "value": 0.0713377146491414,
+      "z": -3.3423374394039453
+    },
+    {
+      "Group": "Experiment",
+      "Date": "2014-10-24",
+      "Metric": "CTP",
+      "value": 0.07413316315677515,
+      "z": -2.5858224711384614
+    }
+  ],
+  "windows": {
+    "traffic_window_days": 37,
+    "outcome_window_days": 23,
+    "outcome_start": "2014-10-11",
+    "outcome_end": "2014-11-02",
+    "excluded_dates": [
+      "2014-11-03",
+      "2014-11-04",
+      "2014-11-05",
+      "2014-11-06",
+      "2014-11-07",
+      "2014-11-08",
+      "2014-11-09",
+      "2014-11-10",
+      "2014-11-11",
+      "2014-11-12",
+      "2014-11-13",
+      "2014-11-14",
+      "2014-11-15",
+      "2014-11-16"
+    ],
+    "sample_loss": [
+      {
+        "Group": "Control",
+        "Clicks_37d": 28378,
+        "Clicks_outcome_23d": 17293,
+        "Clicks_excluded": 11085,
+        "Pct_excluded": 0.39061949397420537,
+        "Outcome_days": 23,
+        "Excluded_days": 14
+      },
+      {
+        "Group": "Experiment",
+        "Clicks_37d": 28325,
+        "Clicks_outcome_23d": 17260,
+        "Clicks_excluded": 11065,
+        "Pct_excluded": 0.39064430714916154,
+        "Outcome_days": 23,
+        "Excluded_days": 14
+      }
+    ]
+  },
+  "pooled_summary": [
+    {
+      "Group": "Control",
+      "Pageviews_37d": 345543,
+      "Clicks_37d": 28378,
+      "CTP_37d": 0.08212581357457682,
+      "Outcome_days": 23,
+      "Clicks_23d": 17293,
+      "Enrollments_23d": 3785,
+      "Payments_23d": 2033,
+      "GrossConversion": 0.2188746891805933,
+      "NetConversion": 0.11756201931417337,
+      "PayPerEnrollment": 0.537120211360634
+    },
+    {
+      "Group": "Experiment",
+      "Pageviews_37d": 344660,
+      "Clicks_37d": 28325,
+      "CTP_37d": 0.08218244066616376,
+      "Outcome_days": 23,
+      "Clicks_23d": 17260,
+      "Enrollments_23d": 3423,
+      "Payments_23d": 1945,
+      "GrossConversion": 0.19831981460023174,
+      "NetConversion": 0.1126882966396292,
+      "PayPerEnrollment": 0.5682150160677768
+    }
+  ]
+}

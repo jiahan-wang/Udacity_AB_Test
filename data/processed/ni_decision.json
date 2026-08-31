@@ -1,0 +1,48 @@
+{
+  "locked_delta": 0.0075,
+  "ni_alpha_one_sided": 0.025,
+  "rule": "NI pass iff 95% two-sided CI lower bound > -delta (equivalent to one-sided alpha=0.025)",
+  "net_point": -0.0048737226745441675,
+  "net_ci95": [
+    -0.011604186136268978,
+    0.0018567407871806435
+  ],
+  "z_ni": 0.76479264772481,
+  "p_ni_one_sided": 0.22219751326394116,
+  "ni_pass": false,
+  "critical_delta_to_pass": 0.011604186136268978,
+  "gross_verdict_primary_ztest": "显著下降",
+  "matrix_decision": "拒绝上线",
+  "delta_sensitivity": [
+    {
+      "delta_pp": 0.5,
+      "lower_bound > -delta": false,
+      "NI_verdict": "fail"
+    },
+    {
+      "delta_pp": 0.75,
+      "lower_bound > -delta": false,
+      "NI_verdict": "fail"
+    },
+    {
+      "delta_pp": 1.0,
+      "lower_bound > -delta": false,
+      "NI_verdict": "fail"
+    },
+    {
+      "delta_pp": 1.16,
+      "lower_bound > -delta": false,
+      "NI_verdict": "fail"
+    },
+    {
+      "delta_pp": 1.25,
+      "lower_bound > -delta": true,
+      "NI_verdict": "pass"
+    },
+    {
+      "delta_pp": 1.5,
+      "lower_bound > -delta": true,
+      "NI_verdict": "pass"
+    }
+  ]
+}

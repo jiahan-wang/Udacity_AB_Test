@@ -1,0 +1,99 @@
+{
+  "window": "23-day outcome window",
+  "totals": [
+    {
+      "Group": "Control",
+      "Clicks": 17293,
+      "Enrollments": 3785,
+      "Payments": 2033,
+      "GrossConversion": 0.2188746891805933,
+      "NetConversion": 0.11756201931417337,
+      "PayPerEnrollment": 0.537120211360634
+    },
+    {
+      "Group": "Experiment",
+      "Clicks": 17260,
+      "Enrollments": 3423,
+      "Payments": 1945,
+      "GrossConversion": 0.19831981460023174,
+      "NetConversion": 0.1126882966396292,
+      "PayPerEnrollment": 0.5682150160677768
+    }
+  ],
+  "z_tests": {
+    "GrossConversion": {
+      "rate_control": 0.2188746891805933,
+      "rate_experiment": 0.19831981460023174,
+      "abs_diff": -0.020554874580361565,
+      "relative_change": -0.09391161059925827,
+      "z": -4.701830023753982,
+      "p_value": 2.578401033720593e-06,
+      "se_test_pooled": 0.004371675385225936,
+      "se_ci_unpooled": 0.004370125116166828,
+      "ci95_low": -0.02912016241598247,
+      "ci95_high": -0.011989586744740663
+    },
+    "NetConversion": {
+      "rate_control": 0.11756201931417337,
+      "rate_experiment": 0.1126882966396292,
+      "abs_diff": -0.0048737226745441675,
+      "relative_change": -0.04145660905602178,
+      "z": -1.4192001144365733,
+      "p_value": 0.15584068262150205,
+      "se_test_pooled": 0.0034341335129324238,
+      "se_ci_unpooled": 0.0034339730295116894,
+      "ci95_low": -0.011604186136268978,
+      "ci95_high": 0.0018567407871806435
+    }
+  },
+  "ppe_aux": {
+    "control": 0.537120211360634,
+    "experiment": 0.5682150160677768,
+    "abs_diff": 0.031094804707142765,
+    "relative_change": 0.057891704779407464,
+    "direction": "up",
+    "descriptive_ci95": [
+      0.00812329664929666,
+      0.05406631276498887
+    ],
+    "note": "auxiliary business diagnostic only; NOT an independent primary hypothesis test"
+  },
+  "bootstrap_B": 10000,
+  "bootstrap": {
+    "GrossConversion": {
+      "ci95_low": -0.04587122214325189,
+      "ci95_high": 0.004769578879595699,
+      "boot_mean": -0.020624736432015223
+    },
+    "NetConversion": {
+      "ci95_low": -0.022562763933051712,
+      "ci95_high": 0.011818598204919845,
+      "boot_mean": -0.004867949084095824
+    },
+    "PayPerEnrollment": {
+      "ci95_low": -0.0340299084194213,
+      "ci95_high": 0.09554525397582488,
+      "boot_mean": 0.031203450313650773
+    }
+  },
+  "delta": {
+    "GrossConversion": {
+      "point": -0.020554874580361565,
+      "se": 0.013243240714432704,
+      "ci95_low": -0.046511626380649665,
+      "ci95_high": 0.005401877219926535
+    },
+    "NetConversion": {
+      "point": -0.0048737226745441675,
+      "se": 0.00886100807591525,
+      "ci95_low": -0.02224129850333806,
+      "ci95_high": 0.012493853154249723
+    },
+    "PayPerEnrollment": {
+      "point": 0.031094804707142765,
+      "se": 0.033723258143994364,
+      "ci95_low": -0.035002781255086185,
+      "ci95_high": 0.09719239066937171
+    }
+  }
+}

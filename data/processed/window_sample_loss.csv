@@ -1,0 +1,3 @@
+Group,Clicks_37d,Clicks_outcome_23d,Clicks_excluded,Pct_excluded,Outcome_days,Excluded_days
+Control,28378,17293,11085,0.39061949397420537,23,14
+Experiment,28325,17260,11065,0.39064430714916154,23,14

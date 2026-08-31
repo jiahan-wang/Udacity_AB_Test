@@ -1,0 +1,102 @@
+{
+  "name": "aggregate-data placebo/permutation robustness check",
+  "not_aa_test": true,
+  "method": "same-weekday block permutation of group labels within weekday (balanced blocks)",
+  "exchangeability_note": "controls weekday seasonality; cannot replicate cookie-level randomization; 23 day-clusters only",
+  "B": 10000,
+  "seed": 20260831,
+  "window": "23-day outcome window",
+  "statistic": "two-sample pooled two-proportion Z (identical to phase-4 pipeline)",
+  "null_overdispersion": {
+    "null_sd_gross": 3.141314020141668,
+    "null_sd_net": 2.538435600005803,
+    "cause": "whole-day reassignment fluctuates group click margins and folds day-level overdispersion into null; not a pipeline bug (null mean ~0)",
+    "permuted_experiment_clicks_mean": 17274.6809,
+    "permuted_experiment_clicks_sd": 167.94234944904113
+  },
+  "sensitivity_paired_date": {
+    "label": "SENSITIVITY ONLY - not primary, not an AA test",
+    "seed": 20260832,
+    "B": 10000,
+    "results": {
+      "GrossConversion": {
+        "empirical_p": 0.0014998500149985001,
+        "null_sd": 1.577144306574473,
+        "fpr_at_05": 0.2201
+      },
+      "NetConversion": {
+        "empirical_p": 0.44685531446855314,
+        "null_sd": 1.8396620009470712,
+        "fpr_at_05": 0.2956
+      }
+    }
+  },
+  "three_method_table": [
+    {
+      "metric": "GrossConversion",
+      "method": "iid-Z (phase-4 primary test)",
+      "obs_Z": -4.701830023753982,
+      "empirical_p": 2.578401033720593e-06,
+      "null_sd": 1.0,
+      "fpr_at_05": 0.05
+    },
+    {
+      "metric": "GrossConversion",
+      "method": "same-weekday block (primary permutation)",
+      "obs_Z": -4.701830023753982,
+      "empirical_p": 0.13538646135386462,
+      "null_sd": 3.141314020141668,
+      "fpr_at_05": 0.5494
+    },
+    {
+      "metric": "GrossConversion",
+      "method": "paired-date swap (SENSITIVITY)",
+      "obs_Z": -4.701830023753982,
+      "empirical_p": 0.0014998500149985001,
+      "null_sd": 1.577144306574473,
+      "fpr_at_05": 0.2201
+    },
+    {
+      "metric": "NetConversion",
+      "method": "iid-Z (phase-4 primary test)",
+      "obs_Z": -1.4192001144365733,
+      "empirical_p": 0.15584068262150205,
+      "null_sd": 1.0,
+      "fpr_at_05": 0.05
+    },
+    {
+      "metric": "NetConversion",
+      "method": "same-weekday block (primary permutation)",
+      "obs_Z": -1.4192001144365733,
+      "empirical_p": 0.5874412558744125,
+      "null_sd": 2.538435600005803,
+      "fpr_at_05": 0.4526
+    },
+    {
+      "metric": "NetConversion",
+      "method": "paired-date swap (SENSITIVITY)",
+      "obs_Z": -1.4192001144365733,
+      "empirical_p": 0.44685531446855314,
+      "null_sd": 1.8396620009470712,
+      "fpr_at_05": 0.2956
+    }
+  ],
+  "results": {
+    "GrossConversion": {
+      "observed_z": -4.701830023753982,
+      "perm_empirical_p_two_sided": 0.13538646135386462,
+      "null_mean": 0.006281175033288232,
+      "null_sd": 3.141314020141668,
+      "empirical_rejection_rate_at_alpha05": 0.5494,
+      "z_pipeline_p": 2.578401033720593e-06
+    },
+    "NetConversion": {
+      "observed_z": -1.4192001144365733,
+      "perm_empirical_p_two_sided": 0.5874412558744125,
+      "null_mean": -0.0232544415540291,
+      "null_sd": 2.538435600005803,
+      "empirical_rejection_rate_at_alpha05": 0.4526,
+      "z_pipeline_p": 0.15584068262150205
+    }
+  }
+}

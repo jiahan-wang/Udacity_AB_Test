@@ -1,0 +1,190 @@
+{
+  "screened_scale": [
+    {
+      "scale": "observed outcome window (23d)",
+      "clicks": 17260,
+      "iid_point": 354.77713525704064,
+      "iid_low": 206.94026721422384,
+      "iid_high": 502.6140032998574,
+      "cluster_point": 354.77713525704064,
+      "cluster_low": -82.32293146182177,
+      "cluster_high": 791.7372941925277
+    },
+    {
+      "scale": "37d traffic window (SCENARIO: lag days same effect)",
+      "clicks": 28325,
+      "iid_point": 582.2168224887413,
+      "iid_low": 339.6050445447793,
+      "iid_high": 824.8286004327034,
+      "cluster_point": 582.2168224887413,
+      "cluster_low": -135.0983217645482,
+      "cluster_high": 1299.30236720761
+    }
+  ],
+  "assumptions": {
+    "label": "Assumption - not observed in dataset; scenario analysis only",
+    "currency": "USD",
+    "support_minutes_low_base_high": [
+      5,
+      15,
+      30
+    ],
+    "hourly_loaded_cost_low_base_high": [
+      15,
+      30,
+      60
+    ],
+    "cost_per_enrollment_low_base_high": [
+      1.25,
+      7.5,
+      30
+    ],
+    "payment_margin_low_base_high": [
+      50,
+      150,
+      400
+    ],
+    "annualization_clicks_per_group_per_day": 1600,
+    "annualization_days": 365,
+    "annualization_note": "headline 一律用 23 天观测窗；年化仅为标注外推假设的情景行"
+  },
+  "scenarios_23d": [
+    {
+      "cost_scenario": "Low (c=1.25)",
+      "cost_per_enrollment_USD": 1.25,
+      "savings_cluster_lower": -102.90366432727721,
+      "savings_point": 443.47141907130083,
+      "savings_cluster_upper": 989.6716177406596,
+      "iid_reference_range": "[259, 628]"
+    },
+    {
+      "cost_scenario": "Base (c=7.5)",
+      "cost_per_enrollment_USD": 7.5,
+      "savings_cluster_lower": -617.4219859636632,
+      "savings_point": 2660.8285144278047,
+      "savings_cluster_upper": 5938.029706443957,
+      "iid_reference_range": "[1,552, 3,770]"
+    },
+    {
+      "cost_scenario": "High (c=30)",
+      "cost_per_enrollment_USD": 30,
+      "savings_cluster_lower": -2469.687943854653,
+      "savings_point": 10643.314057711219,
+      "savings_cluster_upper": 23752.11882577583,
+      "iid_reference_range": "[6,208, 15,078]"
+    }
+  ],
+  "effect_tiers_reduction_23d": {
+    "cluster_lower (conservative)": -82.32293146182177,
+    "point": 354.77713525704064,
+    "cluster_upper": 791.7372941925277
+  },
+  "iid_reference_reduction_23d": [
+    206.94026721422384,
+    502.6140032998574
+  ],
+  "unified_wording": "point/direction agree across Z/delta/bootstrap; strength depends on iid-click assumption; day-cluster Gross CI contains 0",
+  "sensitivity": {
+    "savings_grid": [
+      {
+        "cost_USD_per_enrollment": 1.25,
+        "cluster_lower": -102.9,
+        "point": 443.5,
+        "cluster_upper": 989.7
+      },
+      {
+        "cost_USD_per_enrollment": 2.5,
+        "cluster_lower": -205.8,
+        "point": 886.9,
+        "cluster_upper": 1979.3
+      },
+      {
+        "cost_USD_per_enrollment": 5.0,
+        "cluster_lower": -411.6,
+        "point": 1773.9,
+        "cluster_upper": 3958.7
+      },
+      {
+        "cost_USD_per_enrollment": 7.5,
+        "cluster_lower": -617.4,
+        "point": 2660.8,
+        "cluster_upper": 5938.0
+      },
+      {
+        "cost_USD_per_enrollment": 10.0,
+        "cluster_lower": -823.2,
+        "point": 3547.8,
+        "cluster_upper": 7917.4
+      },
+      {
+        "cost_USD_per_enrollment": 15.0,
+        "cluster_lower": -1234.8,
+        "point": 5321.7,
+        "cluster_upper": 11876.1
+      },
+      {
+        "cost_USD_per_enrollment": 20.0,
+        "cluster_lower": -1646.5,
+        "point": 7095.5,
+        "cluster_upper": 15834.7
+      },
+      {
+        "cost_USD_per_enrollment": 30.0,
+        "cluster_lower": -2469.7,
+        "point": 10643.3,
+        "cluster_upper": 23752.1
+      }
+    ],
+    "tornado_base": 2660.8285144278047,
+    "tornado": [
+      {
+        "driver": "unit cost c (1.25..30)",
+        "low": 443.47141907130083,
+        "high": 10643.314057711219
+      },
+      {
+        "driver": "Gross effect (cluster CI)",
+        "low": -617.4219859636632,
+        "high": 5938.029706443957
+      },
+      {
+        "driver": "Gross effect (iid CI, ref.)",
+        "low": 1552.0520041066789,
+        "high": 3769.6050247489306
+      }
+    ],
+    "breakeven": [
+      {
+        "margin_scenario": "Low v=50",
+        "v_USD": 50,
+        "point_revenue_loss_USD": 4206.022668131616,
+        "breakeven_cost_per_enrollment_USD": 11.855393851929882
+      },
+      {
+        "margin_scenario": "Base v=150",
+        "v_USD": 150,
+        "point_revenue_loss_USD": 12618.06800439485,
+        "breakeven_cost_per_enrollment_USD": 35.566181555789655
+      },
+      {
+        "margin_scenario": "High v=400",
+        "v_USD": 400,
+        "point_revenue_loss_USD": 33648.18134505293,
+        "breakeven_cost_per_enrollment_USD": 94.84315081543906
+      }
+    ],
+    "breakeven_margin_at_base_cost": 31.631171826396596,
+    "point_lost_payments_23d": 84.12045336263233,
+    "annualized_scenario": {
+      "clicks_per_group": 584000,
+      "reduced_enrollments": 12004.046754931154,
+      "savings_low_base_high": [
+        15005.058443663944,
+        90030.35066198366,
+        360121.4026479346
+      ],
+      "point_lost_payments": 2846.254041933794,
+      "label": "Assumption - not observed in dataset"
+    }
+  }
+}

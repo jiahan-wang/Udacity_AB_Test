@@ -1,0 +1,84 @@
+{
+  "locked": {
+    "alpha_two_sided": 0.05,
+    "ni_alpha_one_sided": 0.025,
+    "target_power": 0.8,
+    "mde_gross": 0.01,
+    "mde_net": 0.0075,
+    "ni_delta_net": 0.0075
+  },
+  "theoretical_requirement": [
+    {
+      "Metric": "Gross",
+      "planning_p": 0.20625,
+      "target_MDE": 0.01,
+      "n_per_group@0.80": 25233,
+      "n_per_group@0.90": 33779,
+      "total_PV@0.80": 630818,
+      "accrual_days": 15.8,
+      "calendar_days_with_14d_lag": 29.8
+    },
+    {
+      "Metric": "Net",
+      "planning_p": 0.1093125,
+      "target_MDE": 0.0075,
+      "n_per_group@0.80": 26348,
+      "n_per_group@0.90": 35273,
+      "total_PV@0.80": 658712,
+      "accrual_days": 16.5,
+      "calendar_days_with_14d_lag": 30.5
+    }
+  ],
+  "actual_precision": {
+    "Gross": {
+      "nc": 17293,
+      "ne": 17260,
+      "pc": 0.2188746891805933,
+      "pe": 0.19831981460023174,
+      "se": 0.004370125116166828,
+      "ci_halfwidth": 0.008565287835620902,
+      "ci_fullwidth": 0.017130575671241804
+    },
+    "Net": {
+      "nc": 17293,
+      "ne": 17260,
+      "pc": 0.11756201931417337,
+      "pe": 0.1126882966396292,
+      "se": 0.0034339730295116894,
+      "ci_halfwidth": 0.006730463461724811,
+      "ci_fullwidth": 0.013460926923449622
+    }
+  },
+  "power_by_metric": [
+    {
+      "Metric": "Gross",
+      "power@locked_MDE": 0.6399,
+      "achievable_MDE@0.80": 0.01206,
+      "locked_MDE": 0.01,
+      "n_coverage": 0.685
+    },
+    {
+      "Metric": "Net",
+      "power@locked_MDE": 0.6212,
+      "achievable_MDE@0.80": 0.00923,
+      "locked_MDE": 0.0075,
+      "n_coverage": 0.656
+    }
+  ],
+  "extra_days_needed": {
+    "Gross": {
+      "required_per_group": 25233,
+      "achieved_per_group": 17276,
+      "clicks_per_group_day": 751.2,
+      "extra_accrual_days": 10.6,
+      "extra_calendar_days_with_lag": 24.6
+    },
+    "Net": {
+      "required_per_group": 26348,
+      "achieved_per_group": 17276,
+      "clicks_per_group_day": 751.2,
+      "extra_accrual_days": 12.1,
+      "extra_calendar_days_with_lag": 26.1
+    }
+  }
+}
