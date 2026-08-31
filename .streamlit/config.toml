@@ -1,0 +1,10 @@
+# Streamlit 看板配置
+[theme]
+primaryColor = "#1f4e79"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f2f4f7"
+textColor = "#1a1a1a"
+font = "sans serif"
+
+[server]
+headless = true

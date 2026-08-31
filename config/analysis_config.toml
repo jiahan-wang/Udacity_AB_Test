@@ -1,0 +1,69 @@
+# =====================================================================
+# A/B 实验集中配置
+# 分区：[locked] = 分析前锁定；[exploratory] = 仅用于敏感性/鲁棒性分析
+# 读取方式：Python 3.11+ 标准库 tomllib（无需第三方依赖）
+# =====================================================================
+
+[meta]
+project = "Udacity free-trial screener A/B test"
+config_version = "1.0"
+locked_at = "2026-08-31"
+locked_by = "jiahan-wang（在查看任何推断结果之前锁定）"
+
+# ---------------- 事前锁定的协议参数（分析前锁定，不随结果修改） ----------------
+[locked]
+alpha_two_sided = 0.05            # Gross/Net 普通双侧显著性检验
+ni_alpha_one_sided = 0.025        # Net 非劣效：单侧 0.025，等价用 95% 双侧 CI 下界判定
+target_power = 0.80               # 设计目标功效（设计参数，非事后 observed power）
+mde_gross = 0.01                  # Gross Conversion 最小业务相关效应（绝对值，1.0pp）
+mde_net = 0.0075                  # Net Conversion 最小业务相关效应（0.75pp）
+ni_delta_net = 0.0075             # Net 非劣效边界 δ：CI 下界 > -0.0075 即满足非劣效
+# δ 业务理由（业务决策原话）：
+ni_delta_rationale = "免费试听筛选器目标是过滤低投入意愿用户、降低运营成本；只要最终付费转化率下降不超过 0.75 个百分点，成本节约的价值就超过可接受的收入损失，因此 0.75pp 是本次实验的业务容忍边界。"
+
+# ---------------- 分析窗口 ----------------
+[locked.windows]
+traffic_start = "2014-10-11"      # SRM / invariant metrics 用全 37 天
+traffic_end = "2014-11-16"
+traffic_days = 37
+outcome_start = "2014-10-11"      # Gross/Net/PayPerEnroll 用前 23 天
+outcome_end = "2014-11-02"
+outcome_days = 23
+outcome_lag_days = 14             # enroll 后需 14 天观察 Payment
+excluded_dates = ["2014-11-03","2014-11-04","2014-11-05","2014-11-06","2014-11-07",
+                  "2014-11-08","2014-11-09","2014-11-10","2014-11-11","2014-11-12",
+                  "2014-11-13","2014-11-14","2014-11-15","2014-11-16"]
+
+# ---------------- 规划基线（Udacity 课程公开 benchmark，非本实验观测） ----------------
+[design_baseline]
+note = "public benchmark / design assumption；observed control rate 仅用于事后精度分析"
+p_enroll_given_click = 0.20625    # Gross 规划基线
+p_pay_given_click = 0.1093125     # Net 规划基线
+p_pay_given_enroll = 0.53
+ctr = 0.08                        # Clicks / Pageviews
+daily_pageviews_total = 40000     # 两组合计日 PV
+daily_clicks_total = 3200         # 两组合计日 clicks
+
+# ---------------- 探索性 / 敏感性参数（不参与正式结论，可调整） ----------------
+[exploratory]
+random_seed = 20260831
+bootstrap_b = 10000               # day-cluster bootstrap 次数（>=5000，取 10000）
+bootstrap_unit = "day"            # 以天为重采样单位（聚合数据，非 user-level）
+ci_percentile = [0.025, 0.975]
+permutation_check_enabled = true   # aggregate-data placebo/permutation robustness check（非 AA Test；见 notebooks/04b）
+permutation_b = 10000
+permutation_method = "same-weekday block permutation"
+zero_effect_simulation_enabled = true   # 零效应假阳性演示见方法论扩展 Notebook（模拟，不进主结论）
+zero_effect_repeats = 2000
+zero_effect_sim_location = "notebooks/07_methodology_extension_demo.ipynb -> methodology_demo/ (simulated demonstration only)"
+# 成本/工时业务参数
+[business_assumptions]
+label = "Assumption - not observed in dataset; scenario analysis only"
+currency = "USD"
+support_minutes_low_base_high = [5, 15, 30]          # 单试听用户运营支持工时（分钟）
+hourly_loaded_cost_low_base_high = [15, 30, 60]      # 综合人力时薪（USD/小时）
+cost_per_enrollment_low_base_high = [1.25, 7.5, 30]  # = 分钟×时薪/60（USD/试听用户）
+payment_margin_low_base_high = [50, 150, 400]        # 单个付费用户贡献毛利 v，仅用于 break-even
+annualization_clicks_per_group_per_day = 1600        # = design_baseline daily_clicks_total/2，外推假设
+annualization_days = 365
+annualization_note = "headline 一律用 23 天观测窗；年化仅为标注外推假设的情景行"

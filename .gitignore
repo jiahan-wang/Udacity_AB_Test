@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# 项目内虚拟环境
+.venv/
+
+# 原始数据默认不入库（许可口径未确认前），来源与下载说明见 data/raw/DATA_PROVENANCE.md
+data/raw/*.csv
+data/raw/*.xlsx
+
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# 临时虚拟环境
+.venv_fresh/
+
+# 本地复算输出
+local_reports/
