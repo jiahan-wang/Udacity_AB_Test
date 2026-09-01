@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements-core.txt
+
+      - name: Download raw data (not tracked in repo)
+        run: python scripts/download_data.py
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Reproduce all artifacts from raw
+        run: python scripts/run_pipeline.py

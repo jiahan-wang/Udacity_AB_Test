@@ -1,5 +1,7 @@
 # Udacity 免费试听筛选（Free-Trial Screener）A/B 实验评估
 
+[![CI](https://github.com/jiahan-wang/Udacity_AB_Test/actions/workflows/ci.yml/badge.svg)](https://github.com/jiahan-wang/Udacity_AB_Test/actions/workflows/ci.yml)
+
 > 核心业务问题：新增“免费试听前筛选每周学习时长”的门槛，能否**减少低意愿用户对免费试听资源的无效占用，同时保障最终付费转化**？
 > 核心决策指标：**Net Conversion（Payments / Clicks）**，采用事前锁定的**非劣效（Non-inferiority）**框架判定。
 > 本 README 的结果数字均来自 `data/processed/*.json`，可由 `scripts/run_pipeline.py` 从原始数据复现。
@@ -137,9 +139,7 @@ python -m venv .venv
 .venv\Scripts\python scripts/run_pipeline.py
 # 4) 跑全部单元 + 回归 + 端到端测试（无 skip）
 .venv\Scripts\python -m pytest
-# 5) 重新生成本 README
-.venv\Scripts\python -m udacity_ab.build_readme
-# 6) 启动交互看板
+# 5) 启动交互看板
 .venv\Scripts\streamlit run app/streamlit_app.py
 ```
 - 回归保障：`tests/test_regression_against_json.py` 断言 src 复现与已提交 JSON 一致（确定性结果 1e-12、MC 结果紧容差）；`tests/test_pipeline_end_to_end.py` 在临时目录从 raw 全量重跑并逐字段比对。

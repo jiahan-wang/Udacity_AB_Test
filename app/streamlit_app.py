@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Udacity 免费试听筛选 A/B 实验交互式看板（Streamlit）。
 
 启动：streamlit run app/streamlit_app.py

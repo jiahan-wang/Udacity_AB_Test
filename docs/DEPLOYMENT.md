@@ -26,14 +26,6 @@ python -m venv .venv
 
 六个页面：数据概览 / 实验质量 / 核心效果 / 非劣效判断 / 成本收益 / 方法论与局限。δ 与成本滑块仅用于敏感性/情景分析，不改变正式结论。
 
-## 重新生成 README
-
-README 的数字来自 `data/processed/*.json`，改动结果后重新渲染：
-
-```bash
-PYTHONPATH=src .venv/Scripts/python -m udacity_ab.build_readme
-```
-
 ## 测试
 
 ```bash
