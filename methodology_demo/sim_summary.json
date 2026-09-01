@@ -1,0 +1,58 @@
+{
+  "disclaimer": "Simulated data methodology demonstration - not used for the primary experiment conclusion",
+  "dgp": {
+    "n": 10000,
+    "sigma": 1.0,
+    "beta": 1.0,
+    "tau_demo": 0.05,
+    "rho_theory": 0.7071067811865475
+  },
+  "cuped": {
+    "theta_theory_beta": 1.0,
+    "rho2_theory_variance_reduction": 0.4999999999999999,
+    "empirical_variance_reduction": 0.5061223258292797,
+    "naive_empirical_SE": 0.028674830620545606,
+    "cuped_empirical_SE": 0.020151647530136062,
+    "naive_CI95_coverage": 0.946,
+    "cuped_CI95_coverage": 0.947,
+    "mean_CI_width_ratio": 0.7071120475623623
+  },
+  "zero_effect": {
+    "true_tau": 0.0,
+    "repeats": 2000,
+    "alpha": 0.05,
+    "naive_empirical_FPR": 0.0525,
+    "cuped_empirical_FPR": 0.056,
+    "note": "method demo only; NOT validation of original randomization; NOT an AA test"
+  },
+  "hte": {
+    "true_gamma": 0.08,
+    "mean_gamma_hat": 0.07947891026989636,
+    "empirical_SE": 0.041020841730921624,
+    "coverage95": 0.941,
+    "mean_subgroup_effect_G0": 0.019886828628876817,
+    "mean_subgroup_effect_G1": 0.0985463489056534
+  },
+  "multiplicity": {
+    "K": 40,
+    "repeats": 2000,
+    "global_null": {
+      "avg_discoveries": {
+        "raw": 1.977,
+        "bonf": 0.051,
+        "bh": 0.057
+      },
+      "FWER_unadjusted": 0.8595,
+      "FWER_bonferroni": 0.0495,
+      "FDR_BH": 0.05,
+      "theory_FWER_unadjusted": 0.8714878434348969
+    },
+    "mixed": {
+      "avg_discoveries": {
+        "raw": 7.97,
+        "bonf": 2.7155,
+        "bh": 4.3845
+      }
+    }
+  }
+}
