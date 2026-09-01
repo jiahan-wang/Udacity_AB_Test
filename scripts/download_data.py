@@ -2,7 +2,7 @@
 """原始数据下载与 SHA-256 校验（raw 不入库，需自行下载）。
 
 用法：python scripts/download_data.py
-仅用标准库；下载后逐字节校验，哈希不符则非零退出并提示。
+仅用标准库；下载后做换行归一（镜像文件末尾可能缺少换行，补齐为规范字节）再逐字节校验，哈希不符则非零退出并提示。
 """
 import hashlib
 import sys
@@ -41,6 +41,9 @@ def main(root: Path) -> int:
             print(f"  FAILED: {exc}")
             ok = False
             continue
+        # 镜像文件末尾可能缺少换行；补齐为规范字节后再校验/落盘
+        if not data.endswith(b"\n"):
+            data += b"\n"
         got = sha256_bytes(data)
         if got != expected:
             print(f"  SHA-256 MISMATCH: expected {expected}, got {got} -> not saved")
